@@ -1,572 +1,1945 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#00101f" />
-    <title>IoT Quest — Learn IoT by Doing & Playing</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Jersey+10&family=Press+Start+2P&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <main class="hero" aria-labelledby="hero-title">
-      <div class="sky-noise" aria-hidden="true"></div>
-      <div class="pixel-cloud cloud-one" aria-hidden="true"></div>
-      <div class="pixel-cloud cloud-two" aria-hidden="true"></div>
 
-      <nav class="nav wrap" aria-label="Main navigation">
-        <a class="brand" href="#home" aria-label="IoT Quest home">
-          <span class="chip-mark"><i></i><b>⌁</b></span><span>IoT<span>Quest</span></span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#00101f" />
+  <title>IoT Quest — Learn IoT by Doing & Playing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Jersey+10&family=Press+Start+2P&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+<style id="authCustomStyles">
+/* ==========================================================================
+   CREATIVE AUTHENTICATION SYSTEM & RETRO ARCADE PILOT TERMINAL
+   IoT Quest — Ultra-High Polish Cyberpunk/Pixel-Art UI
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. RETRO ARCADE NAV BUTTONS (PILOT DOCK)
+   -------------------------------------------------------------------------- */
+.nav-auth-deck {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  padding: 4px 6px;
+  background: rgba(3, 16, 28, 0.7);
+  border: 2px solid #14354d;
+  border-radius: 8px;
+  box-shadow: inset 0 0 12px rgba(0, 206, 201, 0.15), 0 4px 16px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+/* Subtle circuit trace on the deck */
+.nav-auth-deck::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 12px;
+  width: 24px;
+  height: 2px;
+  background: #38bdf8;
+  box-shadow: 0 0 6px #38bdf8;
+}
+
+/* Shared Creative Button Base */
+.creative-auth-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px 7px;
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  transition: transform 0.12s steps(2), filter 0.15s ease, box-shadow 0.15s ease;
+  line-height: 1;
+}
+
+.creative-auth-btn:hover {
+  filter: brightness(1.15);
+  transform: translateY(-2px);
+}
+
+.creative-auth-btn:active {
+  transform: translateY(2px);
+  filter: brightness(0.95);
+}
+
+.creative-btn-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.creative-btn-badge {
+  display: block;
+  font-size: 6.5px;
+  letter-spacing: 1px;
+  margin-top: 3px;
+  opacity: 0.85;
+  text-transform: uppercase;
+}
+
+/* SIGN IN (COSMIC HOLOGRAPHIC PILOT KEY) */
+.creative-signin-btn {
+  color: #7dd3fc;
+  background: linear-gradient(135deg, #091b2c 0%, #131d3f 100%);
+  border: 3px solid #38bdf8;
+  box-shadow:
+    inset -3px -4px 0 #032b49,
+    inset 3px 3px 0 #1e3a6a,
+    3px 4px 0 #00121f,
+    0 0 14px rgba(56, 189, 248, 0.35);
+  border-radius: 4px;
+}
+
+.creative-signin-btn .btn-icon-spark {
+  color: #ffd978;
+  font-size: 11px;
+  animation: spark-spin 4s linear infinite;
+  display: inline-block;
+  text-shadow: 0 0 8px #ffd978;
+}
+
+@keyframes spark-spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.15);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.creative-signin-btn .creative-btn-badge {
+  color: #ffd978;
+}
+
+/* LOG IN (VOXEL ARCADE POWER BUTTON) */
+.creative-login-btn {
+  color: #001824;
+  background: var(--aqua, #24e6b6);
+  border: 3px solid #a4ffeb;
+  box-shadow:
+    inset -3px -4px 0 #07ad91,
+    inset 3px 3px 0 #6effe5,
+    3px 4px 0 #001824,
+    0 0 18px rgba(36, 230, 182, 0.45);
+  border-radius: 4px;
+}
+
+.creative-login-btn .btn-icon-play {
+  color: #002230;
+  font-size: 9px;
+  animation: play-arrow-pulse 1.4s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes play-arrow-pulse {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(2px);
+  }
+}
+
+.creative-login-btn .creative-btn-badge {
+  color: #003642;
+  font-weight: 700;
+}
+
+/* Subtle holographic sweep light on hover */
+.creative-auth-btn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.25) 50%,
+      transparent 100%);
+  transform: rotate(30deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.creative-auth-btn:hover::after {
+  opacity: 1;
+  animation: holo-sweep 0.75s ease forwards;
+}
+
+@keyframes holo-sweep {
+  0% {
+    left: -60%;
+  }
+
+  100% {
+    left: 140%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. LOGGED IN EXPLORER HUD CHIP
+   -------------------------------------------------------------------------- */
+.nav-user-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 14px 5px 6px;
+  background: linear-gradient(135deg, #071f33 0%, #031422 100%);
+  border: 2px solid #00cec9;
+  border-radius: 40px;
+  box-shadow: 0 4px 18px rgba(0, 206, 201, 0.35), inset 0 0 12px rgba(0, 206, 201, 0.15);
+  animation: popInChip 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popInChip {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.user-avatar-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #55efc4, #00cec9 60%, #0984e3 100%);
+  color: #001824;
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 13px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  border: 2px solid #a8fffa;
+  box-shadow: 0 0 12px rgba(0, 206, 201, 0.6);
+  user-select: none;
+}
+
+.user-chip-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.user-chip-name {
+  color: #f8fafc;
+  font-size: 12.5px;
+  font-weight: 700;
+  font-family: 'Inter', system-ui, sans-serif;
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-chip-xp {
+  color: #ffd978;
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 8px;
+  letter-spacing: 0.5px;
+}
+
+.user-logout-btn {
+  background: #0d283f;
+  border: 1px solid #1e4d75;
+  color: #94a3b8;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 6px;
+  line-height: 1;
+  border-radius: 50%;
+  transition: all 0.15s ease;
+  display: grid;
+  place-items: center;
+}
+
+.user-logout-btn:hover {
+  background: #f43f5e;
+  border-color: #fda4af;
+  color: #fff;
+  transform: rotate(90deg);
+  box-shadow: 0 0 10px rgba(244, 63, 94, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   3. HOLOGRAPHIC CRT TERMINAL MODAL (SIGN IN & LOG IN WINDOW)
+   -------------------------------------------------------------------------- */
+.auth-modal {
+  width: min(94vw, 540px);
+  padding: 0;
+  border: 3.5px solid #00cec9;
+  border-radius: 14px;
+  background: #041220;
+  color: #f1f5f9;
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.9),
+    0 0 45px rgba(0, 206, 201, 0.35),
+    inset 0 0 35px rgba(0, 206, 201, 0.1);
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  z-index: 100000;
+}
+
+.auth-modal:not([open]) {
+  display: none !important;
+}
+
+.auth-modal[open] {
+  display: block !important;
+}
+
+.auth-modal::backdrop {
+  background: rgba(1, 9, 18, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.auth-modal-frame {
+  position: relative;
+  padding: 30px 28px 26px;
+}
+
+/* Retro CRT Phosphor Scanlines */
+.auth-crt-overlay {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg,
+      rgba(0, 0, 0, 0.15) 0px,
+      rgba(0, 0, 0, 0.15) 2px,
+      transparent 2px,
+      transparent 4px);
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.45;
+}
+
+/* Fastener Rivets / Test Points */
+.auth-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.corner-tl {
+  top: 8px;
+  left: 8px;
+  border-top: 3px solid #ffd978;
+  border-left: 3px solid #ffd978;
+}
+
+.corner-tr {
+  top: 8px;
+  right: 8px;
+  border-top: 3px solid #ffd978;
+  border-right: 3px solid #ffd978;
+}
+
+.corner-bl {
+  bottom: 8px;
+  left: 8px;
+  border-bottom: 3px solid #ffd978;
+  border-left: 3px solid #ffd978;
+}
+
+.corner-br {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 3px solid #ffd978;
+  border-right: 3px solid #ffd978;
+}
+
+/* Pilot Terminal HUD Topbar */
+.auth-terminal-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(56, 189, 248, 0.35);
+  margin-bottom: 16px;
+}
+
+.terminal-hud-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 8px;
+  color: #38bdf8;
+  letter-spacing: 0.5px;
+}
+
+.terminal-hud-beacon {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #10b981;
+  animation: hud-beacon 1.5s infinite;
+}
+
+@keyframes hud-beacon {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: scale(0.7);
+  }
+}
+
+.terminal-sound-toggle {
+  background: #082136;
+  border: 1px solid #1e4d75;
+  color: #7dd3fc;
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 7.5px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.terminal-sound-toggle:hover {
+  background: #0f3559;
+  color: #ffd978;
+}
+
+.auth-close-btn {
+  background: #082136;
+  border: 1.5px solid #38bdf8;
+  color: #e0f2fe;
+  font-size: 20px;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all 0.15s ease;
+}
+
+.auth-close-btn:hover {
+  background: #f43f5e;
+  border-color: #fda4af;
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.auth-modal-title {
+  margin: 0 0 4px;
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 18px;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 0 #000, 0 0 20px rgba(0, 206, 201, 0.4);
+}
+
+.auth-modal-sub {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   4. TACTILE CYBER SWITCHER (LOGIN <-> SIGNIN)
+   -------------------------------------------------------------------------- */
+.auth-cyber-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 5px;
+  background: #020912;
+  border: 2px solid #14354d;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.auth-tab-btn {
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: #64748b;
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 9.5px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.18s ease;
+}
+
+.auth-tab-btn:hover {
+  color: #cbd5e1;
+}
+
+.auth-tab-btn.is-active {
+  background: linear-gradient(135deg, #092c44 0%, #061c2d 100%);
+  color: #24e6b6;
+  border: 1.5px solid #00cec9;
+  box-shadow: 0 0 16px rgba(0, 206, 201, 0.4), inset 0 0 8px rgba(0, 206, 201, 0.2);
+}
+
+/* Alert Banner */
+.auth-alert {
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: alertFade 0.2s ease;
+}
+
+@keyframes alertFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-alert.alert-error {
+  background: rgba(244, 63, 94, 0.18);
+  border: 1.5px solid #f43f5e;
+  color: #fecdd3;
+  box-shadow: 0 0 12px rgba(244, 63, 94, 0.3);
+}
+
+.auth-alert.alert-success {
+  background: rgba(16, 185, 129, 0.18);
+  border: 1.5px solid #10b981;
+  color: #a7f3d0;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   5. CREATIVE AVATAR SELECTOR (FOR SIGN IN)
+   -------------------------------------------------------------------------- */
+.avatar-picker-zone {
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  background: #020b14;
+  border: 1.5px dashed #1e4d75;
+  border-radius: 8px;
+}
+
+.avatar-picker-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 8px;
+  color: #ffd978;
+  margin-bottom: 8px;
+}
+
+.avatar-picker-label small {
+  color: #38bdf8;
+  font-size: 7px;
+}
+
+.avatar-options-grid {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.avatar-choice-btn {
+  flex: 1;
+  background: #071f33;
+  border: 2px solid #1b496f;
+  border-radius: 6px;
+  padding: 6px 2px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  transition: all 0.16s ease;
+}
+
+.avatar-choice-btn:hover {
+  background: #0d3252;
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+}
+
+.avatar-choice-btn.is-selected {
+  background: #0d385c;
+  border-color: #00cec9;
+  box-shadow: 0 0 12px rgba(0, 206, 201, 0.5);
+  transform: scale(1.05);
+}
+
+.avatar-emoji {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.avatar-name {
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 6.5px;
+  color: #94a3b8;
+}
+
+.avatar-choice-btn.is-selected .avatar-name {
+  color: #24e6b6;
+}
+
+/* --------------------------------------------------------------------------
+   6. CREATIVE FORM FIELDS & INPUTS
+   -------------------------------------------------------------------------- */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.auth-field label,
+.field-label-row label {
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 8px;
+  color: #ffd978;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.field-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pass-toggle-btn {
+  background: #06192a;
+  border: 1px solid #143e62;
+  color: #94a3b8;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 3px 8px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.pass-toggle-btn:hover {
+  color: #38bdf8;
+  border-color: #38bdf8;
+}
+
+.auth-field input[type="text"],
+.auth-field input[type="email"],
+.auth-field input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  background: #020912;
+  border: 2px solid #14354d;
+  border-radius: 6px;
+  color: #f8fafc;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13.5px;
+  transition: all 0.18s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.auth-field input:focus {
+  border-color: #00cec9;
+  background: #031424;
+  box-shadow: 0 0 16px rgba(0, 206, 201, 0.4);
+}
+
+.auth-field input::placeholder {
+  color: #475569;
+}
+
+/* --------------------------------------------------------------------------
+   7. QUANTUM ENERGY SHIELD (CREATIVE STRONG PASSWORD SETUP)
+   -------------------------------------------------------------------------- */
+.quantum-shield-engine {
+  margin-top: 4px;
+  background: #020912;
+  border: 1.5px solid #13334d;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.pass-gen-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.pass-gen-tag {
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 7.5px;
+  color: #7dd3fc;
+}
+
+/* Cyber Matrix Decryptor Button */
+.cypher-generator-btn {
+  background: linear-gradient(135deg, #092c44, #121e42);
+  border: 1.5px solid #38bdf8;
+  color: #e0f2fe;
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 8px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.16s ease;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+
+.cypher-generator-btn:hover {
+  background: linear-gradient(135deg, #0d385c, #1a295c);
+  border-color: #00cec9;
+  color: #ffd978;
+  box-shadow: 0 0 16px rgba(0, 206, 201, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Shield Status Display */
+.shield-hud-meter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  background: #041424;
+  border-radius: 6px;
+  border: 1px solid #0d2b45;
+}
+
+.shield-glyph-icon {
+  font-size: 24px;
+  filter: drop-shadow(0 0 6px currentColor);
+  transition: color 0.25s ease, filter 0.25s ease;
+  line-height: 1;
+}
+
+.shield-meter-info {
+  flex: 1;
+}
+
+.shield-meter-title-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.shield-meter-title-row small {
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 7px;
+  color: #64748b;
+}
+
+.shield-meter-title-row strong {
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 7.5px;
+  color: #94a3b8;
+  transition: color 0.2s ease;
+}
+
+.shield-track-bar {
+  width: 100%;
+  height: 8px;
+  background: #0a1b2d;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #14354d;
+}
+
+.shield-fill-level {
+  height: 100%;
+  width: 0%;
+  border-radius: 4px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.shield-fill-level.is-weak {
+  background: #f43f5e;
+  box-shadow: 0 0 12px rgba(244, 63, 94, 0.8);
+}
+
+.shield-fill-level.is-medium {
+  background: #f59e0b;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.8);
+}
+
+.shield-fill-level.is-strong {
+  background: #10b981;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.95);
+  animation: shield-overdrive 1.2s infinite alternate;
+}
+
+@keyframes shield-overdrive {
+  from {
+    filter: brightness(1);
+  }
+
+  to {
+    filter: brightness(1.25);
+    box-shadow: 0 0 20px #10b981;
+  }
+}
+
+/* Cyber Circuit Criteria Grid */
+.circuit-criteria-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.circuit-node {
+  padding: 6px 8px;
+  background: #04101e;
+  border: 1px solid #0e273e;
+  border-radius: 4px;
+  font-size: 10px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.node-led {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #334155;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 2px #000;
+}
+
+.circuit-node.is-powered {
+  color: #a7f3d0;
+  background: rgba(16, 185, 129, 0.08);
+  border-color: #10b981;
+}
+
+.circuit-node.is-powered .node-led {
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+/* Special full width for 8+ chars */
+.circuit-node.node-full {
+  grid-column: 1 / -1;
+}
+
+/* --------------------------------------------------------------------------
+   8. CREATIVE BIOMETRIC SCANNER (FOR LOG IN)
+   -------------------------------------------------------------------------- */
+.biometric-scanner-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #020b14;
+  border: 1.5px dashed #143e62;
+  border-radius: 8px;
+  margin-bottom: 2px;
+}
+
+.biometric-scanner-orb {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  background: #06192a;
+  border: 2px solid #00cec9;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0, 206, 201, 0.4);
+}
+
+.scanner-beam-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #24e6b6;
+  box-shadow: 0 0 6px #24e6b6;
+  animation: laser-scan 1.6s ease-in-out infinite alternate;
+}
+
+@keyframes laser-scan {
+  0% {
+    top: 0%;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+.biometric-text-wrap {
+  flex: 1;
+}
+
+.biometric-title {
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 7.5px;
+  color: #ffd978;
+  margin-bottom: 2px;
+}
+
+.biometric-desc {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* --------------------------------------------------------------------------
+   9. SUBMIT BUTTONS & FOOTER
+   -------------------------------------------------------------------------- */
+.auth-submit-btn {
+  width: 100%;
+  padding: 15px 22px;
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 11px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+  transition: all 0.16s ease;
+  user-select: none;
+}
+
+.auth-submit-btn.primary-submit {
+  background: var(--aqua, #24e6b6);
+  color: #001824;
+  border: 3px solid #9effea;
+  box-shadow:
+    inset -4px -5px 0 #07ad91,
+    inset 3px 3px 0 #58f4ce,
+    0 6px 20px rgba(36, 230, 182, 0.45);
+}
+
+.auth-submit-btn.signin-submit {
+  background: #0984e3;
+  color: #fff;
+  border: 3px solid #74b9ff;
+  box-shadow:
+    inset -4px -5px 0 #075294,
+    inset 3px 3px 0 #3fa0f0,
+    0 6px 20px rgba(9, 132, 227, 0.45);
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.14);
+}
+
+.auth-submit-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.auth-submit-btn:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  filter: grayscale(0.6);
+  transform: none;
+  box-shadow: none;
+}
+
+.auth-footer-prompt {
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 6px;
+}
+
+.auth-switch-link {
+  background: transparent;
+  border: none;
+  color: #38bdf8;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 4px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.auth-switch-link:hover {
+  color: #24e6b6;
+}
+
+/* --------------------------------------------------------------------------
+   10. TOAST NOTIFICATION
+   -------------------------------------------------------------------------- */
+.auth-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 99999;
+  padding: 14px 22px;
+  background: #06192a;
+  border: 2px solid #00cec9;
+  border-radius: 8px;
+  color: #f0fdfa;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85), 0 0 20px rgba(0, 206, 201, 0.4);
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.24s ease, transform 0.24s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.auth-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.auth-toast.toast-error {
+  border-color: #f43f5e;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85), 0 0 20px rgba(244, 63, 94, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .nav-auth-deck {
+    gap: 6px;
+    padding: 3px;
+  }
+
+  .creative-auth-btn {
+    padding: 6px 12px;
+    font-size: 9px;
+  }
+
+  .creative-btn-badge {
+    display: none;
+  }
+
+  .auth-modal-frame {
+    padding: 22px 16px 18px;
+  }
+
+  .circuit-criteria-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+  <main class="hero" aria-labelledby="hero-title">
+    <div class="sky-noise" aria-hidden="true"></div>
+    <div class="pixel-cloud cloud-one" aria-hidden="true"></div>
+    <div class="pixel-cloud cloud-two" aria-hidden="true"></div>
+
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="IoT Quest home">
+        <span class="chip-mark"><i></i><b>⌁</b></span><span>IoT<span>Quest</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="is-active" href="#home">Home</a>
+        <a href="#modules">Learn</a>
+        <a href="#rewards">Rewards</a>
+        <a href="#challenges">Challenges</a>
+        <a href="#resources">Resources</a>
+      </div>
+      <div class="nav-auth-group" id="navAuthGroup">
+        <button type="button" class="join-button signin-button" id="navSigninBtn" aria-label="Open Sign In Window">
+          <span>✦</span> Sign In
+        </button>
+        <button type="button" class="join-button login-button" id="navLoginBtn" aria-label="Open Login Window">
+          <span>▶</span> Login
+        </button>
+      </div>
+      <div class="nav-user-chip" id="navUserChip" hidden>
+        <div class="user-avatar-badge" id="userAvatarBadge">🚀</div>
+        <div class="user-chip-meta">
+          <span class="user-chip-name" id="userChipName">Explorer</span>
+          <span class="user-chip-xp" id="userChipXp">⚡ 150 XP</span>
+        </div>
+        <button type="button" class="user-logout-btn" id="logoutBtn" title="Log out" aria-label="Log out">⏻</button>
+      </div>
+    </nav>
+
+    <section class="hero-copy wrap" id="home">
+      <p class="eyebrow">YOUR IOT ADVENTURE STARTS HERE</p>
+      <h1 id="hero-title">Learn <em>IoT</em><br />by <em>Doing &amp; Playing</em></h1>
+      <p class="intro">Gamified lessons, interactive simulations and<br class="desktop-only" /> real-world challenges to
+        make IoT easy and exciting.</p>
+      <div class="cta-row">
+        <a class="pixel-button primary" href="#components"><span>▶</span> Start Playing <b>→</b></a>
+        <a class="pixel-button secondary" href="#components">View Games</a>
+      </div>
+      <ul class="benefits" aria-label="Platform benefits">
+        <li><span class="benefit-icon bulb">💡</span><span>Learn<br />Concepts</span></li>
+        <li><span class="benefit-icon">🎮</span><span>Build<br />Projects</span></li>
+        <li><span class="benefit-icon trophy">🏆</span><span>Earn<br />Badges</span></li>
+        <li><span class="benefit-icon chart">▥</span><span>Track<br />Progress</span></li>
+      </ul>
+    </section>
+
+    <div class="world-window" aria-hidden="true">
+      <div class="world-float">
+        <img src="./assets/voxel-iot-learning-adventure.png" alt="" />
+      </div>
+    </div>
+    <div class="glow glow-a" aria-hidden="true"></div>
+    <div class="glow glow-b" aria-hidden="true"></div>
+    <div class="scanline" aria-hidden="true"></div>
+  </main>
+
+  <!-- INTUITIVE CREATION SHOWCASE SECTION (MATCHING SCREENSHOT WITH ELECTRONIC DOODLES) -->
+  <section class="creation-showcase" id="creation" aria-labelledby="creation-title">
+    <!-- Fluffy cloud divider matching the bottom transition in screenshot -->
+    <div class="cloud-divider-top" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+        <path
+          d="M0,90 C80,90 120,40 180,40 C230,40 260,70 310,70 C370,70 410,20 480,20 C540,20 580,55 640,55 C700,55 740,10 820,10 C890,10 930,50 990,50 C1050,50 1090,25 1160,25 C1220,25 1260,65 1320,65 C1370,65 1400,35 1440,35 L1440,90 L0,90 Z"
+          fill="#ffffff"></path>
+      </svg>
+    </div>
+
+    <div class="creation-container">
+      <!-- DOODLES LAYER: Electronic components floating like the doodles in the screenshot -->
+      <div class="doodle-scene" aria-hidden="true">
+
+        <!-- LEFT CLUSTER (Corresponds to the left pillar/device structure in screenshot) -->
+        <div class="doodle-anchor doodle-anchor-left">
+          <div class="doodle-item doodle-breadboard float-anim-1" title="Breadboard & Circuit">
+            <img src="./assets/doodles/breadboard.png" alt="Breadboard" />
+          </div>
+          <div class="doodle-item doodle-ultrasonic float-anim-2" title="HC-SR04 Ultrasonic Sensor">
+            <img src="./assets/doodles/ultrasonic.png" alt="Ultrasonic Sensor" />
+          </div>
+          <div class="doodle-item doodle-led-red float-anim-3" title="Red LED">
+            <img src="./assets/doodles/led-red.png" alt="Red LED" />
+          </div>
+          <div class="doodle-item doodle-resistor float-anim-4" title="Resistor">
+            <img src="./assets/doodles/resistor-1.png" alt="Resistor" />
+          </div>
+        </div>
+
+        <!-- BOTTOM LEFT (Corresponds to the floating green block platform in screenshot) -->
+        <div class="doodle-anchor doodle-anchor-bottom-left">
+          <div class="doodle-item doodle-lcd float-anim-2" title="16x2 LCD Display">
+            <img src="./assets/doodles/lcd-display.png" alt="LCD Display" />
+          </div>
+          <div class="doodle-item doodle-button float-anim-3" title="Tactile Push Button">
+            <img src="./assets/doodles/button.png" alt="Push Button" />
+          </div>
+        </div>
+
+        <!-- RIGHT CLUSTER (Corresponds to the tall green ladder tower & chest in screenshot) -->
+        <div class="doodle-anchor doodle-anchor-right">
+          <div class="doodle-item doodle-oled float-anim-1" title="Smiling OLED Display">
+            <img src="./assets/doodles/oled-display.png" alt="OLED Display" />
+          </div>
+          <div class="doodle-item doodle-esp32 float-anim-3" title="ESP32 Microcontroller">
+            <img src="./assets/doodles/esp32.png" alt="ESP32" />
+          </div>
+          <div class="doodle-item doodle-jumpers float-anim-2" title="Jumper Wires">
+            <img src="./assets/doodles/jumper-wires.png" alt="Jumper Wires" />
+          </div>
+          <div class="doodle-item doodle-dht float-anim-4" title="DHT Temperature & Humidity Sensor">
+            <img src="./assets/doodles/dht-sensor.png" alt="DHT Sensor" />
+          </div>
+        </div>
+
+        <!-- BOTTOM RIGHT ACCENT -->
+        <div class="doodle-anchor doodle-anchor-bottom-right">
+          <div class="doodle-item doodle-arduino float-anim-2" title="Arduino Uno">
+            <img src="./assets/doodles/arduino.png" alt="Arduino Uno" />
+          </div>
+          <div class="doodle-item doodle-motor float-anim-1" title="DC Motor">
+            <img src="./assets/doodles/dc-motor.png" alt="DC Motor" />
+          </div>
+        </div>
+
+        <!-- DELICATE FLOATING SCATTER PARTICLES -->
+        <div class="doodle-item doodle-accent-pir float-anim-4" title="PIR Motion Sensor">
+          <img src="./assets/doodles/pir-sensor.png" alt="PIR Sensor" />
+        </div>
+        <div class="doodle-item doodle-accent-blue-led float-anim-2" title="Blue LED">
+          <img src="./assets/doodles/led-blue.png" alt="Blue LED" />
+        </div>
+        <div class="doodle-item doodle-accent-green-led float-anim-3" title="Green LED">
+          <img src="./assets/doodles/led-green.png" alt="Green LED" />
+        </div>
+        <div class="doodle-item doodle-accent-transistor float-anim-1" title="Transistor">
+          <img src="./assets/doodles/transistor-npn.png" alt="Transistor" />
+        </div>
+      </div>
+
+      <!-- CENTER CONTENT: Exact heading, subtext and interactive logic pill blocks -->
+      <div class="creation-center-content">
+        <h2 id="creation-title" class="creation-main-title">
+          Learn easy with<br />
+          <span class="intuitive-text">gamified</span> learning
+        </h2>
+        <p class="creation-description" id="creationDescription">
+          What makes IoT Quest unique and so easy to master is gamified learning. Quests, visual events, and interactive
+          electronics turn hardware into an intuitive adventure — without getting stuck in complex syntax.
+        </p>
+
+        <!-- Visual event block exactly as shown in screenshot -->
+        <div class="event-sheet-card" id="eventSheetCard" aria-label="Visual Event Logic Block">
+          <div class="event-rule-row condition-row">
+            <span class="event-index" id="eventIndexBadge">1</span>
+            <div class="event-pill condition-pill" id="eventConditionPill">
+              <span class="entity-icon player-icon" id="eventActorIcon">👾</span>
+              <span class="entity-name player-label" id="eventActorLabel">Player</span>
+              <span class="event-verb" id="eventVerbLabel">is in collision with</span>
+              <span class="target-tag coin-tag" id="eventTargetTag">
+                <span class="coin-icon" id="eventTargetIcon">🪙</span>
+                <span class="target-name" id="eventTargetLabel">Coin</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="event-rule-row action-row">
+            <div class="event-pill action-pill" id="eventActionPill">
+              <span class="action-cross" id="eventActionSymbol">✖</span>
+              <span class="action-verb" id="eventActionVerb">Delete</span>
+              <span class="target-tag coin-tag" id="eventActionTargetTag">
+                <span class="coin-icon" id="eventActionTargetIcon">🪙</span>
+                <span class="target-name" id="eventActionTargetLabel">Coin</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Mode Toggle: Switch between Game Event and IoT Circuit Event! -->
+        <div class="creation-toggle-row">
+          <button type="button" class="mode-toggle-btn is-active" id="btnGameMode">
+            <span>🎮</span> Game Mode
+          </button>
+          <button type="button" class="mode-toggle-btn" id="btnIotMode">
+            <span>⚡</span> IoT Circuit Mode
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="module-zone" id="components" aria-labelledby="modules-title">
+    <div id="modules"></div>
+    <div class="section-wrap">
+      <div class="section-kicker"><span>▣</span> CHOOSE YOUR NEXT QUEST</div>
+      <div class="section-heading-row">
+        <div>
+          <h2 id="modules-title">Explore the <em>Component Realms</em></h2>
+          <p>Every block holds a new power. Learn it, build with it, and unlock its badge.</p>
+        </div>
+        <div class="xp-panel"><span>⚡</span><b>0 XP</b><small>YOUR INVENTORY</small></div>
+      </div>
+      <div class="module-grid" aria-label="Electronic component learning modules">
+        <!-- LEVEL 01: ESP32 -->
+        <a class="module-card is-selected" href="./module.html?module=esp32" data-module="esp32">
+          <span class="card-level">LEVEL 01</span>
+          <div class="card-doodle-spot esp32-spot">
+            <img src="./assets/doodles/esp32.png" alt="ESP32" class="card-doodle-asset esp32-card-img float-anim-1" />
+          </div>
+          <strong>ESP32</strong>
+          <small>The brain block</small>
+          <span class="card-cta">Start quest <b>→</b></span>
         </a>
-        <div class="nav-links">
-          <a class="is-active" href="#home">Home</a>
-          <a href="#modules">Learn</a>
-          <a href="#rewards">Rewards</a>
-          <a href="#challenges">Challenges</a>
-          <a href="#resources">Resources</a>
-        </div>
-        <a class="join-button" href="#login"><span>▶</span> Login</a>
-      </nav>
 
-      <section class="hero-copy wrap" id="home">
-        <p class="eyebrow">YOUR IOT ADVENTURE STARTS HERE</p>
-        <h1 id="hero-title">Learn <em>IoT</em><br />by <em>Doing &amp; Playing</em></h1>
-        <p class="intro">Gamified lessons, interactive simulations and<br class="desktop-only" /> real-world challenges to make IoT easy and exciting.</p>
-        <div class="cta-row">
-          <a class="pixel-button primary" href="#components"><span>▶</span> Start Playing <b>→</b></a>
-          <a class="pixel-button secondary" href="#components">View Games</a>
-        </div>
-        <ul class="benefits" aria-label="Platform benefits">
-          <li><span class="benefit-icon bulb">💡</span><span>Learn<br />Concepts</span></li>
-          <li><span class="benefit-icon">🎮</span><span>Build<br />Projects</span></li>
-          <li><span class="benefit-icon trophy">🏆</span><span>Earn<br />Badges</span></li>
-          <li><span class="benefit-icon chart">▥</span><span>Track<br />Progress</span></li>
-        </ul>
-      </section>
+        <!-- LEVEL 02: BREADBOARD -->
+        <a class="module-card" href="./module.html?module=breadboard" data-module="breadboard">
+          <span class="card-level">LEVEL 02</span>
+          <div class="card-doodle-spot breadboard-spot">
+            <img src="./assets/doodles/breadboard.png" alt="Breadboard"
+              class="card-doodle-asset breadboard-card-img float-anim-2" />
+          </div>
+          <strong>Breadboard</strong>
+          <small>Your build base</small>
+          <span class="card-cta">Start quest <b>→</b></span>
+        </a>
 
-      <div class="world-window" aria-hidden="true">
-        <div class="world-float">
-          <img src="./assets/voxel-iot-learning-adventure.png" alt="" />
-        </div>
+        <!-- LEVEL 03: RESISTORS -->
+        <a class="module-card" href="./module.html?module=resistor" data-module="resistor">
+          <span class="card-level">LEVEL 03</span>
+          <div class="card-doodle-spot resistor-spot">
+            <img src="./assets/doodles/resistor-1.png" alt="Resistor"
+              class="card-doodle-asset resistor-card-img-a float-anim-3" />
+            <img src="./assets/doodles/resistor-2.png" alt=""
+              class="card-doodle-asset resistor-card-img-b float-anim-4" />
+          </div>
+          <strong>Resistors</strong>
+          <small>Tame the current</small>
+          <span class="card-cta">Start quest <b>→</b></span>
+        </a>
+
+        <!-- LEVEL 04: LEDS -->
+        <a class="module-card" href="./module.html?module=led" data-module="led">
+          <span class="card-level">LEVEL 04</span>
+          <div class="card-doodle-spot led-spot">
+            <img src="./assets/doodles/led-red.png" alt="Red LED"
+              class="card-doodle-asset led-card-img-red float-anim-1" />
+            <img src="./assets/doodles/led-green.png" alt="Green LED"
+              class="card-doodle-asset led-card-img-green float-anim-2" />
+          </div>
+          <strong>LEDs</strong>
+          <small>Light up signals</small>
+          <span class="card-cta">Start quest <b>→</b></span>
+        </a>
+
+        <!-- LEVEL 05: TRANSISTORS -->
+        <a class="module-card" href="./module.html?module=transistor" data-module="transistor">
+          <span class="card-level">LEVEL 05</span>
+          <div class="card-doodle-spot transistor-spot">
+            <img src="./assets/doodles/transistor-npn.png" alt="Transistor"
+              class="card-doodle-asset transistor-card-img-a float-anim-3" />
+            <img src="./assets/doodles/transistor-pnp.png" alt="Transistor PNP"
+              class="card-doodle-asset transistor-card-img-b float-anim-4" />
+          </div>
+          <strong>Transistors</strong>
+          <small>Tiny switches</small>
+          <span class="card-cta">Start quest <b>→</b></span>
+        </a>
+
+        <!-- LEVEL 06: CAPACITORS -->
+        <a class="module-card" href="./module.html?module=capacitor" data-module="capacitor">
+          <span class="card-level">LEVEL 06</span>
+          <div class="card-doodle-spot capacitor-spot">
+            <img src="./assets/doodles/capacitor.png" alt="Capacitors"
+              class="card-doodle-asset cap-card-img float-anim-1" />
+          </div>
+          <strong>Capacitors</strong>
+          <small>Store the spark</small>
+          <span class="card-cta">Start quest <b>→</b></span>
+        </a>
+
+        <!-- LEVEL 07: ULTRASONIC SENSOR -->
+        <a class="module-card" href="./module.html?module=ultrasonic" data-module="ultrasonic">
+          <span class="card-level">LEVEL 07</span>
+          <div class="card-doodle-spot ultrasonic-spot">
+            <img src="./assets/doodles/ultrasonic.png" alt="Ultrasonic Sensor"
+              class="card-doodle-asset ultrasonic-card-img float-anim-2" />
+          </div>
+          <strong>Ultrasonic Sensor</strong>
+          <small>Echo distance eyes</small>
+          <span class="card-cta">Start quest <b>→</b></span>
+        </a>
+
+        <!-- LEVEL 08: PIR MOTION SENSOR -->
+        <a class="module-card" href="./module.html?module=pir" data-module="pir">
+          <span class="card-level">LEVEL 08</span>
+          <div class="card-doodle-spot pir-spot">
+            <img src="./assets/doodles/pir-sensor.png" alt="PIR Motion Sensor"
+              class="card-doodle-asset pir-card-img float-anim-3" />
+          </div>
+          <strong>PIR Motion Sensor</strong>
+          <small>Detect living heat</small>
+          <span class="card-cta">Start quest <b>→</b></span>
+        </a>
+
+        <!-- LEVEL 09: DHT SENSOR -->
+        <a class="module-card" href="./module.html?module=dht" data-module="dht">
+          <span class="card-level">LEVEL 09</span>
+          <div class="card-doodle-spot dht-spot">
+            <img src="./assets/doodles/dht-sensor.png" alt="DHT Sensor"
+              class="card-doodle-asset dht-card-img float-anim-4" />
+          </div>
+          <strong>DHT Sensor</strong>
+          <small>Track climate data</small>
+          <span class="card-cta">Start quest <b>→</b></span>
+        </a>
+
+        <!-- LEVEL 10: OLED DISPLAY -->
+        <a class="module-card" href="./module.html?module=oled" data-module="oled">
+          <span class="card-level">LEVEL 10</span>
+          <div class="card-doodle-spot oled-spot">
+            <img src="./assets/doodles/oled-display.png" alt="OLED Display"
+              class="card-doodle-asset oled-card-img float-anim-1" />
+          </div>
+          <strong>OLED Display</strong>
+          <small>Pixel-sharp visuals</small>
+          <span class="card-cta">Start quest <b>→</b></span>
+        </a>
+
+        <!-- LEVEL 11: LCD DISPLAY -->
+        <a class="module-card" href="./module.html?module=lcd" data-module="lcd">
+          <span class="card-level">LEVEL 11</span>
+          <div class="card-doodle-spot lcd-spot">
+            <img src="./assets/doodles/lcd-display.png" alt="16x2 LCD Display"
+              class="card-doodle-asset lcd-card-img float-anim-2" />
+          </div>
+          <strong>LCD Display</strong>
+          <small>Retro text readout</small>
+          <span class="card-cta">Start quest <b>→</b></span>
+        </a>
+
+        <!-- LEVEL 12: DC MOTOR -->
+        <a class="module-card" href="./module.html?module=dcmotor" data-module="dcmotor">
+          <span class="card-level">LEVEL 12</span>
+          <div class="card-doodle-spot motor-spot">
+            <img src="./assets/doodles/dc-motor.png" alt="DC Motor"
+              class="card-doodle-asset motor-card-img float-anim-3" />
+          </div>
+          <strong>DC Motor</strong>
+          <small>Spin into motion</small>
+          <span class="card-cta">Start quest <b>→</b></span>
+        </a>
+
+        <!-- LEVEL 13: PUSH BUTTON -->
+        <a class="module-card" href="./module.html?module=button" data-module="button">
+          <span class="card-level">LEVEL 13</span>
+          <div class="card-doodle-spot button-spot">
+            <img src="./assets/doodles/button.png" alt="Push Button"
+              class="card-doodle-asset button-card-img float-anim-4" />
+          </div>
+          <strong>Push Button</strong>
+          <small>Tactile trigger click</small>
+          <span class="card-cta">Start quest <b>→</b></span>
+        </a>
+
+        <!-- LEVEL 14: JUMPER WIRES -->
+        <a class="module-card" href="./module.html?module=jumper" data-module="jumper">
+          <span class="card-level">LEVEL 14</span>
+          <div class="card-doodle-spot jumper-spot">
+            <img src="./assets/doodles/jumper-wires.png" alt="Jumper Wires"
+              class="card-doodle-asset jumper-card-img float-anim-1" />
+          </div>
+          <strong>Jumper Wires</strong>
+          <small>Bridge the pathways</small>
+          <span class="card-cta">Start quest <b>→</b></span>
+        </a>
+
+        <!-- LEVEL 15: ARDUINO UNO -->
+        <a class="module-card" href="./module.html?module=arduino" data-module="arduino">
+          <span class="card-level">LEVEL 15</span>
+          <div class="card-doodle-spot arduino-spot">
+            <img src="./assets/doodles/arduino.png" alt="Arduino Uno"
+              class="card-doodle-asset arduino-card-img float-anim-2" />
+          </div>
+          <strong>Arduino Uno</strong>
+          <small>The starter pioneer</small>
+          <span class="card-cta">Start quest <b>→</b></span>
+        </a>
       </div>
-      <div class="glow glow-a" aria-hidden="true"></div>
-      <div class="glow glow-b" aria-hidden="true"></div>
-      <div class="scanline" aria-hidden="true"></div>
-    </main>
+    </div>
+  </section>
 
-    <!-- INTUITIVE CREATION SHOWCASE SECTION (MATCHING SCREENSHOT WITH ELECTRONIC DOODLES) -->
-    <section class="creation-showcase" id="creation" aria-labelledby="creation-title">
-      <!-- Fluffy cloud divider matching the bottom transition in screenshot -->
-      <div class="cloud-divider-top" aria-hidden="true">
-        <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
-          <path d="M0,90 C80,90 120,40 180,40 C230,40 260,70 310,70 C370,70 410,20 480,20 C540,20 580,55 640,55 C700,55 740,10 820,10 C890,10 930,50 990,50 C1050,50 1090,25 1160,25 C1220,25 1260,65 1320,65 C1370,65 1400,35 1440,35 L1440,90 L0,90 Z" fill="#ffffff"></path>
-        </svg>
+  <!-- XP REWARDS & REFERRAL SECTION (MATCHING SCREENSHOT) -->
+  <section class="xp-rewards-zone" id="rewards" aria-labelledby="xp-rewards-title">
+    <div class="section-wrap">
+      <div class="section-kicker"><span>⚡</span> QUEST INVENTORY &amp; REWARDS</div>
+      <div class="section-heading-row">
+        <div>
+          <h2 id="xp-rewards-title">Quiz XP &amp; <em>Referral Vault</em></h2>
+          <p>Track XP collected from component quizzes, claim milestone rewards, and invite fellow makers.</p>
+        </div>
+        <div class="xp-panel" id="headerXpPanel"><span>⚡</span><b id="totalXpCounter">270 XP</b><small>YOUR
+            WALLET</small></div>
       </div>
 
-      <div class="creation-container">
-        <!-- DOODLES LAYER: Electronic components floating like the doodles in the screenshot -->
-        <div class="doodle-scene" aria-hidden="true">
-          
-          <!-- LEFT CLUSTER (Corresponds to the left pillar/device structure in screenshot) -->
-          <div class="doodle-anchor doodle-anchor-left">
-            <div class="doodle-item doodle-breadboard float-anim-1" title="Breadboard & Circuit">
-              <img src="./assets/doodles/breadboard.png" alt="Breadboard" />
+      <!-- TOP ROW: XP SCORECARD (LEFT) + 4 QUIZ XP CARDS (RIGHT 2x2) -->
+      <div class="xp-dashboard-grid">
+
+        <!-- LEFT CARD: Main XP Points Card -->
+        <div class="xp-score-card">
+          <div class="xp-coins-illustration" aria-hidden="true">
+            <span class="coin-stack-icon">🪙</span>
+            <span class="sparkle-dot sp-1">✦</span>
+            <span class="sparkle-dot sp-2">✦</span>
+          </div>
+          <p class="score-kicker">YOUR QUIZ XP</p>
+          <div class="score-number-display" id="mainXpDisplay">270</div>
+
+          <div class="score-progress-wrap">
+            <div class="score-progress-bar">
+              <div class="score-progress-fill" id="xpProgressFill" style="width: 72%;"></div>
             </div>
-            <div class="doodle-item doodle-ultrasonic float-anim-2" title="HC-SR04 Ultrasonic Sensor">
-              <img src="./assets/doodles/ultrasonic.png" alt="Ultrasonic Sensor" />
-            </div>
-            <div class="doodle-item doodle-led-red float-anim-3" title="Red LED">
-              <img src="./assets/doodles/led-red.png" alt="Red LED" />
-            </div>
-            <div class="doodle-item doodle-resistor float-anim-4" title="Resistor">
-              <img src="./assets/doodles/resistor-1.png" alt="Resistor" />
-            </div>
+            <p class="progress-label" id="xpProgressLabel">30 XP to Circuit Scout Master rank</p>
           </div>
 
-          <!-- BOTTOM LEFT (Corresponds to the floating green block platform in screenshot) -->
-          <div class="doodle-anchor doodle-anchor-bottom-left">
-            <div class="doodle-item doodle-lcd float-anim-2" title="16x2 LCD Display">
-              <img src="./assets/doodles/lcd-display.png" alt="LCD Display" />
-            </div>
-            <div class="doodle-item doodle-button float-anim-3" title="Tactile Push Button">
-              <img src="./assets/doodles/button.png" alt="Push Button" />
-            </div>
-          </div>
+          <button type="button" class="bonus-claim-btn is-claimed" id="welcomeBonusBtn">
+            <span class="check-icon">✓</span> Welcome bonus claimed
+          </button>
+          <p class="score-subtext">Earn 100+ XP on every completed quiz &amp; lab quest.</p>
+        </div>
 
-          <!-- RIGHT CLUSTER (Corresponds to the tall green ladder tower & chest in screenshot) -->
-          <div class="doodle-anchor doodle-anchor-right">
-            <div class="doodle-item doodle-oled float-anim-1" title="Smiling OLED Display">
-              <img src="./assets/doodles/oled-display.png" alt="OLED Display" />
-            </div>
-            <div class="doodle-item doodle-esp32 float-anim-3" title="ESP32 Microcontroller">
+        <!-- RIGHT GRID: 4 Quiz Cards (2x2) -->
+        <div class="quiz-xp-cards-grid">
+
+          <!-- Quiz Card 1: ESP32 -->
+          <div class="quiz-item-card is-claimed" id="cardEsp32Quiz">
+            <div class="quiz-item-icon-box">
               <img src="./assets/doodles/esp32.png" alt="ESP32" />
             </div>
-            <div class="doodle-item doodle-jumpers float-anim-2" title="Jumper Wires">
-              <img src="./assets/doodles/jumper-wires.png" alt="Jumper Wires" />
-            </div>
-            <div class="doodle-item doodle-dht float-anim-4" title="DHT Temperature & Humidity Sensor">
-              <img src="./assets/doodles/dht-sensor.png" alt="DHT Sensor" />
-            </div>
-          </div>
-
-          <!-- BOTTOM RIGHT ACCENT -->
-          <div class="doodle-anchor doodle-anchor-bottom-right">
-            <div class="doodle-item doodle-arduino float-anim-2" title="Arduino Uno">
-              <img src="./assets/doodles/arduino.png" alt="Arduino Uno" />
-            </div>
-            <div class="doodle-item doodle-motor float-anim-1" title="DC Motor">
-              <img src="./assets/doodles/dc-motor.png" alt="DC Motor" />
+            <div class="quiz-item-details">
+              <h3 class="quiz-item-title">ESP32 Signal Test Quiz</h3>
+              <p class="quiz-item-points"><span class="point-leaf">⚡</span> +150 XP collected</p>
+              <div class="quiz-item-badge claimed-badge">✓ Completed</div>
             </div>
           </div>
 
-          <!-- DELICATE FLOATING SCATTER PARTICLES -->
-          <div class="doodle-item doodle-accent-pir float-anim-4" title="PIR Motion Sensor">
-            <img src="./assets/doodles/pir-sensor.png" alt="PIR Sensor" />
-          </div>
-          <div class="doodle-item doodle-accent-blue-led float-anim-2" title="Blue LED">
-            <img src="./assets/doodles/led-blue.png" alt="Blue LED" />
-          </div>
-          <div class="doodle-item doodle-accent-green-led float-anim-3" title="Green LED">
-            <img src="./assets/doodles/led-green.png" alt="Green LED" />
-          </div>
-          <div class="doodle-item doodle-accent-transistor float-anim-1" title="Transistor">
-            <img src="./assets/doodles/transistor-npn.png" alt="Transistor" />
-          </div>
-        </div>
-
-        <!-- CENTER CONTENT: Exact heading, subtext and interactive logic pill blocks -->
-        <div class="creation-center-content">
-          <h2 id="creation-title" class="creation-main-title">
-            Learn easy with<br />
-            <span class="intuitive-text">gamified</span> learning
-          </h2>
-          <p class="creation-description" id="creationDescription">
-            What makes IoT Quest unique and so easy to master is gamified learning. Quests, visual events, and interactive electronics turn hardware into an intuitive adventure — without getting stuck in complex syntax.
-          </p>
-
-          <!-- Visual event block exactly as shown in screenshot -->
-          <div class="event-sheet-card" id="eventSheetCard" aria-label="Visual Event Logic Block">
-            <div class="event-rule-row condition-row">
-              <span class="event-index" id="eventIndexBadge">1</span>
-              <div class="event-pill condition-pill" id="eventConditionPill">
-                <span class="entity-icon player-icon" id="eventActorIcon">👾</span>
-                <span class="entity-name player-label" id="eventActorLabel">Player</span>
-                <span class="event-verb" id="eventVerbLabel">is in collision with</span>
-                <span class="target-tag coin-tag" id="eventTargetTag">
-                  <span class="coin-icon" id="eventTargetIcon">🪙</span>
-                  <span class="target-name" id="eventTargetLabel">Coin</span>
-                </span>
-              </div>
+          <!-- Quiz Card 2: Breadboard -->
+          <div class="quiz-item-card is-claimed" id="cardBreadboardQuiz">
+            <div class="quiz-item-icon-box">
+              <img src="./assets/doodles/breadboard.png" alt="Breadboard" />
             </div>
-
-            <div class="event-rule-row action-row">
-              <div class="event-pill action-pill" id="eventActionPill">
-                <span class="action-cross" id="eventActionSymbol">✖</span>
-                <span class="action-verb" id="eventActionVerb">Delete</span>
-                <span class="target-tag coin-tag" id="eventActionTargetTag">
-                  <span class="coin-icon" id="eventActionTargetIcon">🪙</span>
-                  <span class="target-name" id="eventActionTargetLabel">Coin</span>
-                </span>
-              </div>
+            <div class="quiz-item-details">
+              <h3 class="quiz-item-title">Breadboard Path Test</h3>
+              <p class="quiz-item-points"><span class="point-leaf">⚡</span> +120 XP collected</p>
+              <div class="quiz-item-badge claimed-badge">✓ Completed</div>
             </div>
           </div>
 
-          <!-- Interactive Mode Toggle: Switch between Game Event and IoT Circuit Event! -->
-          <div class="creation-toggle-row">
-            <button type="button" class="mode-toggle-btn is-active" id="btnGameMode">
-              <span>🎮</span> Game Mode
-            </button>
-            <button type="button" class="mode-toggle-btn" id="btnIotMode">
-              <span>⚡</span> IoT Circuit Mode
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="module-zone" id="components" aria-labelledby="modules-title">
-      <div id="modules"></div>
-      <div class="section-wrap">
-        <div class="section-kicker"><span>▣</span> CHOOSE YOUR NEXT QUEST</div>
-        <div class="section-heading-row">
-          <div>
-            <h2 id="modules-title">Explore the <em>Component Realms</em></h2>
-            <p>Every block holds a new power. Learn it, build with it, and unlock its badge.</p>
-          </div>
-          <div class="xp-panel"><span>⚡</span><b>0 XP</b><small>YOUR INVENTORY</small></div>
-        </div>
-        <div class="module-grid" aria-label="Electronic component learning modules">
-          <!-- LEVEL 01: ESP32 -->
-          <a class="module-card is-selected" href="./module.html?module=esp32" data-module="esp32">
-            <span class="card-level">LEVEL 01</span>
-            <div class="card-doodle-spot esp32-spot">
-              <img src="./assets/doodles/esp32.png" alt="ESP32" class="card-doodle-asset esp32-card-img float-anim-1" />
+          <!-- Quiz Card 3: Resistor -->
+          <div class="quiz-item-card" id="cardResistorQuiz">
+            <div class="quiz-item-icon-box">
+              <img src="./assets/doodles/resistor-1.png" alt="Resistors" />
             </div>
-            <strong>ESP32</strong>
-            <small>The brain block</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-
-          <!-- LEVEL 02: BREADBOARD -->
-          <a class="module-card" href="./module.html?module=breadboard" data-module="breadboard">
-            <span class="card-level">LEVEL 02</span>
-            <div class="card-doodle-spot breadboard-spot">
-              <img src="./assets/doodles/breadboard.png" alt="Breadboard" class="card-doodle-asset breadboard-card-img float-anim-2" />
-            </div>
-            <strong>Breadboard</strong>
-            <small>Your build base</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-
-          <!-- LEVEL 03: RESISTORS -->
-          <a class="module-card" href="./module.html?module=resistor" data-module="resistor">
-            <span class="card-level">LEVEL 03</span>
-            <div class="card-doodle-spot resistor-spot">
-              <img src="./assets/doodles/resistor-1.png" alt="Resistor" class="card-doodle-asset resistor-card-img-a float-anim-3" />
-              <img src="./assets/doodles/resistor-2.png" alt="" class="card-doodle-asset resistor-card-img-b float-anim-4" />
-            </div>
-            <strong>Resistors</strong>
-            <small>Tame the current</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-
-          <!-- LEVEL 04: LEDS -->
-          <a class="module-card" href="./module.html?module=led" data-module="led">
-            <span class="card-level">LEVEL 04</span>
-            <div class="card-doodle-spot led-spot">
-              <img src="./assets/doodles/led-red.png" alt="Red LED" class="card-doodle-asset led-card-img-red float-anim-1" />
-              <img src="./assets/doodles/led-green.png" alt="Green LED" class="card-doodle-asset led-card-img-green float-anim-2" />
-            </div>
-            <strong>LEDs</strong>
-            <small>Light up signals</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-
-          <!-- LEVEL 05: TRANSISTORS -->
-          <a class="module-card" href="./module.html?module=transistor" data-module="transistor">
-            <span class="card-level">LEVEL 05</span>
-            <div class="card-doodle-spot transistor-spot">
-              <img src="./assets/doodles/transistor-npn.png" alt="Transistor" class="card-doodle-asset transistor-card-img-a float-anim-3" />
-              <img src="./assets/doodles/transistor-pnp.png" alt="Transistor PNP" class="card-doodle-asset transistor-card-img-b float-anim-4" />
-            </div>
-            <strong>Transistors</strong>
-            <small>Tiny switches</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-
-          <!-- LEVEL 06: CAPACITORS -->
-          <a class="module-card" href="./module.html?module=capacitor" data-module="capacitor">
-            <span class="card-level">LEVEL 06</span>
-            <div class="card-doodle-spot capacitor-spot">
-              <img src="./assets/doodles/capacitor.png" alt="Capacitors" class="card-doodle-asset cap-card-img float-anim-1" />
-            </div>
-            <strong>Capacitors</strong>
-            <small>Store the spark</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-
-          <!-- LEVEL 07: ULTRASONIC SENSOR -->
-          <a class="module-card" href="./module.html?module=ultrasonic" data-module="ultrasonic">
-            <span class="card-level">LEVEL 07</span>
-            <div class="card-doodle-spot ultrasonic-spot">
-              <img src="./assets/doodles/ultrasonic.png" alt="Ultrasonic Sensor" class="card-doodle-asset ultrasonic-card-img float-anim-2" />
-            </div>
-            <strong>Ultrasonic Sensor</strong>
-            <small>Echo distance eyes</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-
-          <!-- LEVEL 08: PIR MOTION SENSOR -->
-          <a class="module-card" href="./module.html?module=pir" data-module="pir">
-            <span class="card-level">LEVEL 08</span>
-            <div class="card-doodle-spot pir-spot">
-              <img src="./assets/doodles/pir-sensor.png" alt="PIR Motion Sensor" class="card-doodle-asset pir-card-img float-anim-3" />
-            </div>
-            <strong>PIR Motion Sensor</strong>
-            <small>Detect living heat</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-
-          <!-- LEVEL 09: DHT SENSOR -->
-          <a class="module-card" href="./module.html?module=dht" data-module="dht">
-            <span class="card-level">LEVEL 09</span>
-            <div class="card-doodle-spot dht-spot">
-              <img src="./assets/doodles/dht-sensor.png" alt="DHT Sensor" class="card-doodle-asset dht-card-img float-anim-4" />
-            </div>
-            <strong>DHT Sensor</strong>
-            <small>Track climate data</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-
-          <!-- LEVEL 10: OLED DISPLAY -->
-          <a class="module-card" href="./module.html?module=oled" data-module="oled">
-            <span class="card-level">LEVEL 10</span>
-            <div class="card-doodle-spot oled-spot">
-              <img src="./assets/doodles/oled-display.png" alt="OLED Display" class="card-doodle-asset oled-card-img float-anim-1" />
-            </div>
-            <strong>OLED Display</strong>
-            <small>Pixel-sharp visuals</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-
-          <!-- LEVEL 11: LCD DISPLAY -->
-          <a class="module-card" href="./module.html?module=lcd" data-module="lcd">
-            <span class="card-level">LEVEL 11</span>
-            <div class="card-doodle-spot lcd-spot">
-              <img src="./assets/doodles/lcd-display.png" alt="16x2 LCD Display" class="card-doodle-asset lcd-card-img float-anim-2" />
-            </div>
-            <strong>LCD Display</strong>
-            <small>Retro text readout</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-
-          <!-- LEVEL 12: DC MOTOR -->
-          <a class="module-card" href="./module.html?module=dcmotor" data-module="dcmotor">
-            <span class="card-level">LEVEL 12</span>
-            <div class="card-doodle-spot motor-spot">
-              <img src="./assets/doodles/dc-motor.png" alt="DC Motor" class="card-doodle-asset motor-card-img float-anim-3" />
-            </div>
-            <strong>DC Motor</strong>
-            <small>Spin into motion</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-
-          <!-- LEVEL 13: PUSH BUTTON -->
-          <a class="module-card" href="./module.html?module=button" data-module="button">
-            <span class="card-level">LEVEL 13</span>
-            <div class="card-doodle-spot button-spot">
-              <img src="./assets/doodles/button.png" alt="Push Button" class="card-doodle-asset button-card-img float-anim-4" />
-            </div>
-            <strong>Push Button</strong>
-            <small>Tactile trigger click</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-
-          <!-- LEVEL 14: JUMPER WIRES -->
-          <a class="module-card" href="./module.html?module=jumper" data-module="jumper">
-            <span class="card-level">LEVEL 14</span>
-            <div class="card-doodle-spot jumper-spot">
-              <img src="./assets/doodles/jumper-wires.png" alt="Jumper Wires" class="card-doodle-asset jumper-card-img float-anim-1" />
-            </div>
-            <strong>Jumper Wires</strong>
-            <small>Bridge the pathways</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-
-          <!-- LEVEL 15: ARDUINO UNO -->
-          <a class="module-card" href="./module.html?module=arduino" data-module="arduino">
-            <span class="card-level">LEVEL 15</span>
-            <div class="card-doodle-spot arduino-spot">
-              <img src="./assets/doodles/arduino.png" alt="Arduino Uno" class="card-doodle-asset arduino-card-img float-anim-2" />
-            </div>
-            <strong>Arduino Uno</strong>
-            <small>The starter pioneer</small>
-            <span class="card-cta">Start quest <b>→</b></span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- XP REWARDS & REFERRAL SECTION (MATCHING SCREENSHOT) -->
-    <section class="xp-rewards-zone" id="rewards" aria-labelledby="xp-rewards-title">
-      <div class="section-wrap">
-        <div class="section-kicker"><span>⚡</span> QUEST INVENTORY &amp; REWARDS</div>
-        <div class="section-heading-row">
-          <div>
-            <h2 id="xp-rewards-title">Quiz XP &amp; <em>Referral Vault</em></h2>
-            <p>Track XP collected from component quizzes, claim milestone rewards, and invite fellow makers.</p>
-          </div>
-          <div class="xp-panel" id="headerXpPanel"><span>⚡</span><b id="totalXpCounter">270 XP</b><small>YOUR WALLET</small></div>
-        </div>
-
-        <!-- TOP ROW: XP SCORECARD (LEFT) + 4 QUIZ XP CARDS (RIGHT 2x2) -->
-        <div class="xp-dashboard-grid">
-          
-          <!-- LEFT CARD: Main XP Points Card -->
-          <div class="xp-score-card">
-            <div class="xp-coins-illustration" aria-hidden="true">
-              <span class="coin-stack-icon">🪙</span>
-              <span class="sparkle-dot sp-1">✦</span>
-              <span class="sparkle-dot sp-2">✦</span>
-            </div>
-            <p class="score-kicker">YOUR QUIZ XP</p>
-            <div class="score-number-display" id="mainXpDisplay">270</div>
-            
-            <div class="score-progress-wrap">
-              <div class="score-progress-bar">
-                <div class="score-progress-fill" id="xpProgressFill" style="width: 72%;"></div>
-              </div>
-              <p class="progress-label" id="xpProgressLabel">30 XP to Circuit Scout Master rank</p>
-            </div>
-
-            <button type="button" class="bonus-claim-btn is-claimed" id="welcomeBonusBtn">
-              <span class="check-icon">✓</span> Welcome bonus claimed
-            </button>
-            <p class="score-subtext">Earn 100+ XP on every completed quiz &amp; lab quest.</p>
-          </div>
-
-          <!-- RIGHT GRID: 4 Quiz Cards (2x2) -->
-          <div class="quiz-xp-cards-grid">
-            
-            <!-- Quiz Card 1: ESP32 -->
-            <div class="quiz-item-card is-claimed" id="cardEsp32Quiz">
-              <div class="quiz-item-icon-box">
-                <img src="./assets/doodles/esp32.png" alt="ESP32" />
-              </div>
-              <div class="quiz-item-details">
-                <h3 class="quiz-item-title">ESP32 Signal Test Quiz</h3>
-                <p class="quiz-item-points"><span class="point-leaf">⚡</span> +150 XP collected</p>
-                <div class="quiz-item-badge claimed-badge">✓ Completed</div>
-              </div>
-            </div>
-
-            <!-- Quiz Card 2: Breadboard -->
-            <div class="quiz-item-card is-claimed" id="cardBreadboardQuiz">
-              <div class="quiz-item-icon-box">
-                <img src="./assets/doodles/breadboard.png" alt="Breadboard" />
-              </div>
-              <div class="quiz-item-details">
-                <h3 class="quiz-item-title">Breadboard Path Test</h3>
-                <p class="quiz-item-points"><span class="point-leaf">⚡</span> +120 XP collected</p>
-                <div class="quiz-item-badge claimed-badge">✓ Completed</div>
-              </div>
-            </div>
-
-            <!-- Quiz Card 3: Resistor -->
-            <div class="quiz-item-card" id="cardResistorQuiz">
-              <div class="quiz-item-icon-box">
-                <img src="./assets/doodles/resistor-1.png" alt="Resistors" />
-              </div>
-              <div class="quiz-item-details">
-                <h3 class="quiz-item-title">Resistor Ohm Master Quiz</h3>
-                <p class="quiz-item-points"><span class="point-leaf">⚡</span> 100 XP reward</p>
-                <a href="./module.html?module=resistor" class="quiz-item-badge action-badge">
-                  Take Quiz →
-                </a>
-              </div>
-            </div>
-
-            <!-- Quiz Card 4: LEDs -->
-            <div class="quiz-item-card" id="cardLedQuiz">
-              <div class="quiz-item-icon-box">
-                <img src="./assets/doodles/led-red.png" alt="LEDs" />
-              </div>
-              <div class="quiz-item-details">
-                <h3 class="quiz-item-title">LED Signal Glow Quiz</h3>
-                <p class="quiz-item-points"><span class="point-leaf">⚡</span> 100 XP reward</p>
-                <a href="./module.html?module=led" class="quiz-item-badge action-badge">
-                  Take Quiz →
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- BOTTOM CARD: REFERRAL BANNER (MATCHING SCREENSHOT) -->
-        <div class="referral-banner-card">
-          <!-- Left Illustration: Two Phones with dashed connection arc -->
-          <div class="referral-illustration-col" aria-hidden="true">
-            <div class="referral-scene">
-              <div class="phone-mockup phone-sender">
-                <div class="phone-screen">
-                  <div class="avatar-head user-green">👤</div>
-                  <div class="phone-bar bar-1"></div>
-                  <div class="phone-bar bar-2"></div>
-                </div>
-              </div>
-
-              <!-- Connection Arc SVG with Gold Sparkle -->
-              <svg class="referral-arc-svg" viewBox="0 0 240 120" fill="none">
-                <path d="M 20 100 C 60 20, 180 20, 220 100" stroke="#10b981" stroke-width="3" stroke-dasharray="6 6" stroke-linecap="round"></path>
-                <polygon points="220,100 208,86 226,88" fill="#10b981"></polygon>
-              </svg>
-              <span class="arc-star">★</span>
-
-              <div class="phone-mockup phone-receiver">
-                <div class="phone-screen">
-                  <div class="avatar-head user-orange">👤</div>
-                  <div class="phone-bar bar-1"></div>
-                  <div class="phone-bar bar-2"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Information & Actions Column -->
-          <div class="referral-content-col">
-            <p class="ref-kicker">REFER &amp; EARN</p>
-            <h3 class="ref-heading">INVITE FRIENDS, YOU BOTH GET 100 POINTS</h3>
-            
-            <ol class="ref-steps-list">
-              <li>
-                <span class="ref-step-num">1</span>
-                <span>Share your code</span>
-              </li>
-              <li>
-                <span class="ref-step-num">2</span>
-                <span>Your friend completes their first quiz</span>
-              </li>
-              <li>
-                <span class="ref-step-num">3</span>
-                <span>You both earn 100 IoT Quest XP</span>
-              </li>
-            </ol>
-
-            <!-- Referral Code Box with Copy Button -->
-            <div class="ref-code-box">
-              <span class="ref-code-text" id="referralCodeText">QUEST-IOT88</span>
-              <button type="button" class="ref-copy-btn" id="copyReferralBtn">
-                Copy
-              </button>
-            </div>
-
-            <!-- Share Buttons Row -->
-            <div class="ref-actions-row">
-              <a href="https://api.whatsapp.com/send?text=Join%20me%20on%20IoT%20Quest%20and%20earn%20100%20XP%20with%20code%20QUEST-IOT88!" target="_blank" rel="noopener noreferrer" class="ref-btn whatsapp-btn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.769.814 2.791.815 3.181 0 5.767-2.587 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm7.545 5.766c-.002 4.161-3.385 7.545-7.545 7.545-1.312 0-2.484-.344-3.518-.949l-4.513 1.183 1.205-4.398c-.689-1.11-1.054-2.296-1.055-3.381.002-4.161 3.386-7.545 7.546-7.545 4.161 0 7.543 3.384 7.545 7.545z"/>
-                </svg>
-                Share on WhatsApp
+            <div class="quiz-item-details">
+              <h3 class="quiz-item-title">Resistor Ohm Master Quiz</h3>
+              <p class="quiz-item-points"><span class="point-leaf">⚡</span> 100 XP reward</p>
+              <a href="./module.html?module=resistor" class="quiz-item-badge action-badge">
+                Take Quiz →
               </a>
-              <button type="button" class="ref-btn share-more-btn" id="shareMoreBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-                </svg>
-                More ways to share
-              </button>
+            </div>
+          </div>
+
+          <!-- Quiz Card 4: LEDs -->
+          <div class="quiz-item-card" id="cardLedQuiz">
+            <div class="quiz-item-icon-box">
+              <img src="./assets/doodles/led-red.png" alt="LEDs" />
+            </div>
+            <div class="quiz-item-details">
+              <h3 class="quiz-item-title">LED Signal Glow Quiz</h3>
+              <p class="quiz-item-points"><span class="point-leaf">⚡</span> 100 XP reward</p>
+              <a href="./module.html?module=led" class="quiz-item-badge action-badge">
+                Take Quiz →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BOTTOM CARD: REFERRAL BANNER (MATCHING SCREENSHOT) -->
+      <div class="referral-banner-card">
+        <!-- Left Illustration: Two Phones with dashed connection arc -->
+        <div class="referral-illustration-col" aria-hidden="true">
+          <div class="referral-scene">
+            <div class="phone-mockup phone-sender">
+              <div class="phone-screen">
+                <div class="avatar-head user-green">👤</div>
+                <div class="phone-bar bar-1"></div>
+                <div class="phone-bar bar-2"></div>
+              </div>
+            </div>
+
+            <!-- Connection Arc SVG with Gold Sparkle -->
+            <svg class="referral-arc-svg" viewBox="0 0 240 120" fill="none">
+              <path d="M 20 100 C 60 20, 180 20, 220 100" stroke="#10b981" stroke-width="3" stroke-dasharray="6 6"
+                stroke-linecap="round"></path>
+              <polygon points="220,100 208,86 226,88" fill="#10b981"></polygon>
+            </svg>
+            <span class="arc-star">★</span>
+
+            <div class="phone-mockup phone-receiver">
+              <div class="phone-screen">
+                <div class="avatar-head user-orange">👤</div>
+                <div class="phone-bar bar-1"></div>
+                <div class="phone-bar bar-2"></div>
+              </div>
             </div>
           </div>
         </div>
 
-      </div>
-    </section>
+        <!-- Right Information & Actions Column -->
+        <div class="referral-content-col">
+          <p class="ref-kicker">REFER &amp; EARN</p>
+          <h3 class="ref-heading">INVITE FRIENDS, YOU BOTH GET 100 POINTS</h3>
 
-    <section class="adventure-strip" id="challenges">
-      <div class="section-wrap adventure-inner"><span class="strip-diamond">◆</span><p><b>BUILD MODE:</b> Finish modules to unlock real-world IoT challenges, badges, and your maker rank.</p><a href="#modules">View the map →</a></div>
-    </section>
+          <ol class="ref-steps-list">
+            <li>
+              <span class="ref-step-num">1</span>
+              <span>Share your code</span>
+            </li>
+            <li>
+              <span class="ref-step-num">2</span>
+              <span>Your friend completes their first quiz</span>
+            </li>
+            <li>
+              <span class="ref-step-num">3</span>
+              <span>You both earn 100 IoT Quest XP</span>
+            </li>
+          </ol>
 
-    <dialog class="quiz-dialog" id="quizDialog" aria-labelledby="quizTitle">
-      <div class="quiz-screen" id="quizScreen">
-        <button class="close-dialog" id="closeQuiz" type="button" aria-label="Close quiz">×</button>
-        <p class="dialog-kicker">CHECKPOINT QUIZ</p>
-        <h2 id="quizTitle">ESP32 signal test</h2>
-        <p class="quiz-question" id="quizQuestion">What feature lets an ESP32 connect to your home network without an extra part?</p>
-        <div class="quiz-options" id="quizOptions"></div>
-        <p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p>
+          <!-- Referral Code Box with Copy Button -->
+          <div class="ref-code-box">
+            <span class="ref-code-text" id="referralCodeText">QUEST-IOT88</span>
+            <button type="button" class="ref-copy-btn" id="copyReferralBtn">
+              Copy
+            </button>
+          </div>
+
+          <!-- Share Buttons Row -->
+          <div class="ref-actions-row">
+            <a href="https://api.whatsapp.com/send?text=Join%20me%20on%20IoT%20Quest%20and%20earn%20100%20XP%20with%20code%20QUEST-IOT88!"
+              target="_blank" rel="noopener noreferrer" class="ref-btn whatsapp-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.769.814 2.791.815 3.181 0 5.767-2.587 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm7.545 5.766c-.002 4.161-3.385 7.545-7.545 7.545-1.312 0-2.484-.344-3.518-.949l-4.513 1.183 1.205-4.398c-.689-1.11-1.054-2.296-1.055-3.381.002-4.161 3.386-7.545 7.546-7.545 4.161 0 7.543 3.384 7.545 7.545z" />
+              </svg>
+              Share on WhatsApp
+            </a>
+            <button type="button" class="ref-btn share-more-btn" id="shareMoreBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+              </svg>
+              More ways to share
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="reward-screen" id="rewardScreen" hidden>
-        <div class="confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-        <p class="dialog-kicker">QUEST COMPLETE</p>
-        <div class="reward-medal">✦</div>
-        <h2>Badge unlocked!</h2>
-        <p>You earned <b id="earnedXp">150 XP</b> and the <b id="earnedBadge">Circuit Scout Badge</b>.</p>
-        <div class="reward-stats"><span>+150<br /><small>XP</small></span><span>01<br /><small>BADGE</small></span><span>NEW<br /><small>RANK</small></span></div>
-        <button class="journey-button primary-journey" id="claimReward" type="button">Claim reward <span>✦</span></button>
+
+    </div>
+  </section>
+
+  <section class="adventure-strip" id="challenges">
+    <div class="section-wrap adventure-inner"><span class="strip-diamond">◆</span>
+      <p><b>BUILD MODE:</b> Finish modules to unlock real-world IoT challenges, badges, and your maker rank.</p><a
+        href="#modules">View the map →</a>
+    </div>
+  </section>
+
+  <dialog class="quiz-dialog" id="quizDialog" aria-labelledby="quizTitle">
+    <div class="quiz-screen" id="quizScreen">
+      <button class="close-dialog" id="closeQuiz" type="button" aria-label="Close quiz">×</button>
+      <p class="dialog-kicker">CHECKPOINT QUIZ</p>
+      <h2 id="quizTitle">ESP32 signal test</h2>
+      <p class="quiz-question" id="quizQuestion">What feature lets an ESP32 connect to your home network without an
+        extra part?</p>
+      <div class="quiz-options" id="quizOptions"></div>
+      <p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p>
+    </div>
+    <div class="reward-screen" id="rewardScreen" hidden>
+      <div class="confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="dialog-kicker">QUEST COMPLETE</p>
+      <div class="reward-medal">✦</div>
+      <h2>Badge unlocked!</h2>
+      <p>You earned <b id="earnedXp">150 XP</b> and the <b id="earnedBadge">Circuit Scout Badge</b>.</p>
+      <div class="reward-stats">
+        <span>+150<br /><small>XP</small></span><span>01<br /><small>BADGE</small></span><span>NEW<br /><small>RANK</small></span>
       </div>
-    </dialog>
-    <script src="./app.js"></script>
-  </body>
+      <button class="journey-button primary-journey" id="claimReward" type="button">Claim reward <span>✦</span></button>
+    </div>
+  </dialog>
+
+  <!-- ==========================================================================
+       PROFESSIONAL RETRO ARCADE PILOT AUTHENTICATION DIALOG (SIGN IN & LOGIN)
+       ========================================================================== -->
+  <dialog class="auth-modal" id="authModal" aria-labelledby="authModalHeading">
+    <!-- CRT Phosphor Scanline Overlay -->
+    <div class="auth-crt-overlay" aria-hidden="true"></div>
+
+    <div class="auth-modal-frame">
+      <!-- Pixel Fastener Rivets -->
+      <div class="auth-corner corner-tl" aria-hidden="true"></div>
+      <div class="auth-corner corner-tr" aria-hidden="true"></div>
+      <div class="auth-corner corner-bl" aria-hidden="true"></div>
+      <div class="auth-corner corner-br" aria-hidden="true"></div>
+
+      <!-- Terminal Topbar HUD -->
+      <div class="auth-terminal-hud">
+        <div class="terminal-hud-status">
+          <span class="terminal-hud-beacon"></span>
+          <span>PILOT ACCESS TERMINAL • ONLINE</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button type="button" class="terminal-sound-toggle" id="soundToggleBtn" title="Toggle 8-bit sound effects">🔊 SFX: ON</button>
+          <button type="button" class="auth-close-btn" id="closeAuthModal" aria-label="Close authentication window">×</button>
+        </div>
+      </div>
+
+      <h2 id="authModalHeading" class="auth-modal-title">EXPLORER IDENTIFICATION</h2>
+      <p class="auth-modal-sub">Initialize your pilot credentials or log in to sync your quest inventory.</p>
+
+      <!-- Tactile Cyber Switcher -->
+      <div class="auth-cyber-switch" role="tablist">
+        <button type="button" class="auth-tab-btn" id="tabSignin" role="tab" aria-selected="true" aria-controls="signinPanel">
+          <span>✦</span> SIGN IN (NEW ACCOUNT)
+        </button>
+        <button type="button" class="auth-tab-btn is-active" id="tabLogin" role="tab" aria-selected="false" aria-controls="loginPanel">
+          <span>▶</span> LOGIN (RETURNING PILOT)
+        </button>
+      </div>
+
+      <!-- Feedback Alert Banner -->
+      <div class="auth-alert" id="authAlert" hidden role="alert"></div>
+
+      <!-- ========================================== -->
+      <!-- 1. SIGN IN PANEL (New Recruit Registration)-->
+      <!-- ========================================== -->
+      <div class="auth-panel" id="signinPanel" role="tabpanel" aria-labelledby="tabSignin" hidden>
+        <form id="signinForm" class="auth-form" autocomplete="on">
+          <!-- Companion Avatar Picker -->
+          <div class="avatar-picker-zone">
+            <div class="avatar-picker-label">
+              <span>SELECT COMPANION AVATAR</span>
+              <small>Flight Unit Identifier</small>
+            </div>
+            <div class="avatar-options-grid" role="radiogroup" aria-label="Select avatar">
+              <button type="button" class="avatar-choice-btn is-selected" data-avatar="🚀" title="StarPilot">
+                <span class="avatar-emoji">🚀</span>
+                <span class="avatar-name">Pioneer</span>
+              </button>
+              <button type="button" class="avatar-choice-btn" data-avatar="🤖" title="SparkBot">
+                <span class="avatar-emoji">🤖</span>
+                <span class="avatar-name">Spark</span>
+              </button>
+              <button type="button" class="avatar-choice-btn" data-avatar="⚡" title="VoltFox">
+                <span class="avatar-emoji">⚡</span>
+                <span class="avatar-name">Volt</span>
+              </button>
+              <button type="button" class="avatar-choice-btn" data-avatar="🧠" title="CyberSynapse">
+                <span class="avatar-emoji">🧠</span>
+                <span class="avatar-name">Core</span>
+              </button>
+              <button type="button" class="avatar-choice-btn" data-avatar="🦊" title="PixelFox">
+                <span class="avatar-emoji">🦊</span>
+                <span class="avatar-name">Scout</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Name Option -->
+          <div class="auth-field">
+            <label for="signinName">
+              <span>👤</span> PILOT FULL NAME
+            </label>
+            <input type="text" id="signinName" name="name" placeholder="Enter your full name" required autocomplete="name" />
+          </div>
+
+          <!-- Email Option -->
+          <div class="auth-field">
+            <label for="signinEmail">
+              <span>✉</span> EMAIL ADDRESS
+            </label>
+            <input type="email" id="signinEmail" name="email" placeholder="name@example.com" required autocomplete="email" />
+          </div>
+
+          <!-- Password Option -->
+          <div class="auth-field">
+            <div class="field-label-row">
+              <label for="signinPassword">
+                <span>🛡</span> CREATE PASSWORD
+              </label>
+              <button type="button" class="pass-toggle-btn" id="toggleSigninPass" aria-label="Toggle password visibility">👁</button>
+            </div>
+            <input type="password" id="signinPassword" name="password" placeholder="Create strong password" required autocomplete="new-password" />
+
+            <!-- Quantum Energy Shield Password Engine -->
+            <div class="quantum-shield-engine">
+              <div class="pass-gen-action-row">
+                <span class="pass-gen-tag">PASSWORD STRENGTH</span>
+                <button type="button" class="cypher-generator-btn" id="generatePasswordBtn" title="Generate uncrackable key">
+                  <span>⚡</span> GENERATE STRONG KEY
+                </button>
+              </div>
+
+              <!-- Live Energy Meter -->
+              <div class="shield-hud-meter">
+                <div class="shield-glyph-icon" id="shieldGlyph" style="color: #64748b;">⌁</div>
+                <div class="shield-meter-info">
+                  <div class="shield-meter-title-row">
+                    <small>SECURITY RATING</small>
+                    <strong id="shieldStatusText">DEPLETED (0%)</strong>
+                  </div>
+                  <div class="shield-track-bar">
+                    <div class="shield-fill-level" id="shieldFillLevel"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5 Circuit Criteria LED Nodes -->
+              <ul class="circuit-criteria-grid" aria-label="Password strength checklist">
+                <li class="circuit-node node-full" id="nodeLength">
+                  <span class="node-led"></span>
+                  <span>Minimum 8 Characters</span>
+                </li>
+                <li class="circuit-node" id="nodeUpper">
+                  <span class="node-led"></span>
+                  <span>Uppercase Letter</span>
+                </li>
+                <li class="circuit-node" id="nodeLower">
+                  <span class="node-led"></span>
+                  <span>Lowercase Letter</span>
+                </li>
+                <li class="circuit-node" id="nodeNumber">
+                  <span class="node-led"></span>
+                  <span>Number Digit</span>
+                </li>
+                <li class="circuit-node" id="nodeSpecial">
+                  <span class="node-led"></span>
+                  <span>Special Character (!@#$)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Confirm Password Option -->
+          <div class="auth-field">
+            <div class="field-label-row">
+              <label for="signinConfirmPassword">
+                <span>🔒</span> CONFIRM PASSWORD
+              </label>
+              <button type="button" class="pass-toggle-btn" id="toggleConfirmPass" aria-label="Toggle confirm password visibility">👁</button>
+            </div>
+            <input type="password" id="signinConfirmPassword" name="confirmPassword" placeholder="Confirm your password" required autocomplete="new-password" />
+            <small id="passMatchStatus" style="font-size: 11px; margin-top: 2px; color: #64748b; font-weight: 500;"></small>
+          </div>
+
+          <button type="submit" class="auth-submit-btn signin-submit" id="signinSubmitBtn" disabled>
+            <span>✦</span> SIGN IN &amp; CREATE ACCOUNT
+          </button>
+
+          <div class="auth-footer-prompt">
+            <span>Already have an account?</span>
+            <button type="button" class="auth-switch-link" id="switchToLogin">Log In Here →</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- 2. LOGIN PANEL (Returning Pilot)           -->
+      <!-- ========================================== -->
+      <div class="auth-panel" id="loginPanel" role="tabpanel" aria-labelledby="tabLogin">
+        <form id="loginForm" class="auth-form" autocomplete="on">
+          <!-- Biometric Laser Scanner Banner -->
+          <div class="biometric-scanner-banner">
+            <div class="biometric-scanner-orb">
+              <span>🔐</span>
+              <div class="scanner-beam-line"></div>
+            </div>
+            <div class="biometric-text-wrap">
+              <div class="biometric-title">PILOT VERIFICATION SYSTEM</div>
+              <div class="biometric-desc">Enter your registered email and password to access your quest profile.</div>
+            </div>
+          </div>
+
+          <!-- Email Option -->
+          <div class="auth-field">
+            <label for="loginEmail">
+              <span>✉</span> EMAIL ADDRESS
+            </label>
+            <input type="email" id="loginEmail" name="email" placeholder="name@example.com" required autocomplete="email" />
+          </div>
+
+          <!-- Password Option -->
+          <div class="auth-field">
+            <div class="field-label-row">
+              <label for="loginPassword">
+                <span>🔑</span> PASSWORD
+              </label>
+              <button type="button" class="pass-toggle-btn" id="toggleLoginPass" aria-label="Toggle password visibility">👁</button>
+            </div>
+            <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required autocomplete="current-password" />
+          </div>
+
+          <div class="auth-options-row">
+            <label class="auth-checkbox-label">
+              <input type="checkbox" id="rememberMe" checked />
+              <span>Remember me</span>
+            </label>
+            <button type="button" class="auth-quick-demo-btn" id="quickDemoBtn" title="Load sample explorer credentials">
+              <span>⚡</span> LOAD DEMO (1-CLICK)
+            </button>
+          </div>
+
+          <button type="submit" class="auth-submit-btn primary-submit">
+            <span>▶</span> LOG IN &amp; LAUNCH QUEST
+          </button>
+
+          <div class="auth-footer-prompt">
+            <span>Don't have an account yet?</span>
+            <button type="button" class="auth-switch-link" id="switchToSignin">Sign In (Create Account) →</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </dialog>
+
+  <div class="auth-toast" id="authToast" role="status" aria-live="polite"></div>
+
+  <script src="./auth.js"></script>
+  <script src="./app.js"></script>
+</body>
+
 </html>
